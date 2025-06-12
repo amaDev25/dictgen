@@ -22,11 +22,9 @@ Modular y Fácil de Mantener: Código bien estructurado en módulos separados pa
 Clonar el Repositorio:
 Bash
 
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
-Instalar Dependencias:
-Bash
-
+git clone https://github.com/amaDev25/dictgen.git
+cd dictgent
+Instalar Dependencias (se recomienda usar entornos virtuales):
 pip install -r requirements.txt
 Asegúrate de que tu archivo requirements.txt contenga al menos:
 tqdm
