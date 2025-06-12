@@ -1,0 +1,61 @@
+Modo Línea de Comandos (CLI)
+El modo CLI es ideal para automatización o para usuarios que prefieren especificar todas las opciones de una vez.
+
+
+Ejemplo Básico: Generar con Palabras Clave y Archivo de Salida
+Genera un diccionario usando las palabras "casa" y "perro", guardando el resultado en mi_diccionario.txt.
+python dictgen.py -k casa perro -o mi_diccionario.txt
+
+
+Ejemplo con Variaciones Numéricas (Dígitos Aleatorios)
+Genera un diccionario con "nombre" y "fecha", añadiendo 3 dígitos aleatorios al final de cada variación.
+python dictgen.py -k nombre fecha -n -d 3 -o dic_numeros.txt
+
+
+Ejemplo con Variaciones Numéricas (Rango de Años)
+Genera un diccionario con "empresa" y "proyecto", añadiendo años entre 2000 y 2024 al final de cada variación.
+python dictgen.py -k empresa proyecto -n -y 2000-2024 -o dic_años.txt
+
+
+Ejemplo con Caracteres Especiales
+Genera un diccionario con "password", añadiendo los caracteres especiales !, @, #, $ en varias posiciones.
+python dictgen.py -k password -s "!@#$" -o dic_especiales.txt
+
+
+Ejemplo con Combinaciones de Mayúsculas/Minúsculas
+Genera un diccionario con "secreto", creando todas las combinaciones posibles de mayúsculas y minúsculas (ej. "SeCrEtO", "sEcReTo", etc.).
+python dictgen.py -k secreto -c -o dic_mayusculas.txt
+
+
+Ejemplo con Todas las Mutaciones Combinadas (y límite por palabra base)
+Genera un diccionario con "usuario" y "admin". Aplica todas las mutaciones: números (rangos de años), caracteres especiales, combinaciones de mayúsculas/minúsculas. Limita la salida a 5000 claves por cada palabra base.
+python dictgen.py -k usuario admin -n -y 1990-2025 -s "_-!?" -c -l 5000 -o dic_completo.txt
+
+
+Ejemplo con Deduplicación Automática
+Genera un diccionario y automáticamente elimina las líneas duplicadas al finalizar.
+python dictgen.py -k "mi palabra" "otra palabra" -n -d 2 -x -o dic_deduplicado.txt
+
+
+ADVERTENCIA: La deduplicación de archivos muy grandes puede consumir mucha RAM y tiempo. Consulta el README.md para alternativas manuales si tu archivo es masivo.
+
+
+Ejemplo con Modo Verboso
+Ejecuta el generador mostrando mensajes detallados del proceso. Útil para depuración o para entender mejor lo que hace la herramienta.
+python dictgen.py -k "prueba" -n -d 1 -v -o dic_verbose.txt
+
+
+Ejemplo Especificando el Número de Procesos
+Controla cuántos núcleos de CPU utilizar. Si no se especifica, usa el máximo disponible. Aquí, limita a 4 procesos.
+python dictgen.py -k "palabra" -n -y 2000-2010 -p 4 -o dic_multiproceso.txt
+
+
+Combinando Opciones
+Puedes combinar casi todas las opciones para afinar la generación de tu diccionario a tus necesidades específicas.
+
+Ejemplo de una prueba de auditoría de seguridad:
+Quieres probar contraseñas comunes que incluyan el nombre de la empresa, el año actual y algunas variantes numéricas o de caracteres especiales.
+python dictgen.py -k "NombreEmpresa" "producto" "proyecto" -n -y 2023-2025 -s "@!_-" -c -x -o auditoria_empresa.txt
+
+
+Consejo: Para más detalles sobre cada opción y su comportamiento, consulta el archivo README.md.
